@@ -99,6 +99,10 @@ nav {
     z-index: 999;
 }
 
+a:link {
+    color: inherit;
+}
+
 a:active {
     color: inherit;
 }
