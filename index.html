@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title of Website</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles\main.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <!--Navigation Bar-->
+        <div class="sticky">
+            <div class="nav-bar">
+                <div class="user-panel">
+                    <img src="images/logo.png" id="logo-image">
+                    <ul class="user-container">  
+                        <i class="fa-solid fa-user"></i>
+                        <li class="user">Sign In/Sign Up</li>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <li class="user">Cart</li>
+                    </ul>
+                </div>
+
+                <nav>
+                    <ul class="nav-container">
+                        <li class="nav-item"><a href="#Home">Home</a></li>
+                        <li class="nav-item"><a href="#Shop">Shop</a></li>
+                        <li class="nav-item"><a href="#About">About</a></li>
+                        <li class="nav-item"><a href="#Contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+            <div class="ad-container">
+                <p class="ad">Free Shipping on Orders Over $89</p>
+            </div>
+        
+        <main>
+            <!--HOME Section-->
+            <section class="home-container" id="Home">
+                <img src="images/background.jpg" id="home-img">
+                <div class="home-sign">
+                    <h1 id="home-message">Fall Sale! 20% Off ALL Items!</h1><br>
+                    <button type="button" id="shop-now-button">Shop Now</button>
+                </div>
+            </section>
+
+            <!--SHOP Section-->
+            <section class="shop-container" id="Shop">
+                <h2>Shop by Category</h2>
+                <div class="product-container">
+                    <div class="product" id="backpack" style="background-image: url('images/backpacks/bag_category.jpg');">
+                        <p>Backpacks</p>
+                    </div>
+                    <div class="product" id="tote" style="background-image: url('images/totebags/tote_category.jpg');">
+                        <p>Tote Bags</p>
+                    </div>
+                    <div class="product" id="bottle" style="background-image: url('images/bottles/bottle_category.jpg');">
+                        <p>Water Bottle</p>
+                    </div>
+                </div>
+            </section>
+
+            <!--ABOUT Section-->
+            <section class="about-container" id="About">
+                <h2>About Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="about-icons">
+                    <img src="images/warranty.png">
+                    <img src="images/fairtrade.png">
+                    <img src="images/recycled.png">
+                </div>
+            </section>
+
+            <!--CONTACT Section-->
+            <section class="contact-container" id="Contact">
+                <h2>Contact Us</h2>
+                <form id="contact-form">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="message">Message</label><br>
+                    <textarea id="message" name="message" placeholder="Type your message here." required></textarea><br>          
+                    <input type="submit" value="Submit" class="submit-button">
+                </form>
+            </section>
+        </main>
+        
+        <footer>
+        <!--TODO: add footer-->
+        </footer>
+    </body>
+</html>
