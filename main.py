@@ -6,6 +6,14 @@ app=Flask(__name__)
 def welcome():
     return render_template('index.html')
 
+@app.route('/products_list')
+def products_list():
+    return render_template('products_list.html')
+
+@app.route('/product_detail')
+def product_detail():
+    return render_template('product_detail.html')
+
 @app.route('/test')
 def test():
     return render_template('test.html')
