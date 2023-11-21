@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Title of Website</title>
+        <title>{% block title %}Home{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="..\static\styles\main.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -37,6 +37,7 @@
             </div>
         
         <main>
+            {% block content %}
             <!--HOME Section-->
             <section class="home-container" id="Home">
                 <img src="../static/images/background.jpg" id="home-img">
@@ -47,16 +48,18 @@
             </section>
 
             <!--SHOP Section-->
-            <section class="shop-container" id="Shop">
+            <section class="shop-category-container" id="Shop">
                 <h2>Shop by Category</h2>
-                <div class="product-container">
-                    <div class="product" id="backpack" style="background-image: url('../static/images/backpacks/bag_category.jpg');">
-                        <p>Backpacks</p>
-                    </div>
-                    <div class="product" id="tote" style="background-image: url('../static/images/totebags/tote_category.jpg');">
+                <div class="product-category-container">
+                    <a href="{{ url_for('products_list') }}">
+                        <div class="category" id="backpack" style="background-image: url('../static/images/backpacks/bag_category.jpg');">
+                            <p>Backpacks</p>
+                        </div>
+                    </a>
+                    <div class="category" id="tote" style="background-image: url('../static/images/totebags/tote_category.jpg');">
                         <p>Tote Bags</p>
                     </div>
-                    <div class="product" id="bottle" style="background-image: url('../static/images/bottles/bottle_category.jpg');">
+                    <div class="category" id="bottle" style="background-image: url('../static/images/bottles/bottle_category.jpg');">
                         <p>Water Bottle</p>
                     </div>
                 </div>
@@ -88,6 +91,7 @@
                     <input type="submit" value="Submit" class="submit-button">
                 </form>
             </section>
+            {% endblock %}
         </main>
         
         <footer>
