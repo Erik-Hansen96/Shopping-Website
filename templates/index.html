@@ -12,7 +12,9 @@
         <div class="sticky">
             <div class="nav-bar">
                 <div class="user-panel">
-                    <img src="../static/images/logo.png" id="logo-image">
+                    <a href="{{ url_for('welcome') }}">
+                        <img src="../static/images/logo.png" id="logo-image">
+                    </a>
                     <ul class="user-container">  
                         <i class="fa-solid fa-user"></i>
                         <li class="user">Sign In/Sign Up</li>

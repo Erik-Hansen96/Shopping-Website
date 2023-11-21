@@ -36,8 +36,8 @@ section {
 }
 
 #logo-image {
-    background-color: inherit;
-    height: inherit;
+    background-color: rgb(241, 250, 238);
+    height: 50px;
     width: 175px;
     object-fit: contain;
     cursor: pointer;
