@@ -14,6 +14,10 @@ def products_list():
 def product_detail():
     return render_template('product_detail.html')
 
+@app.route('/shopping_cart')
+def shopping_cart():
+    return render_template('shopping_cart.html')
+
 @app.route('/test')
 def test():
     return render_template('test.html')

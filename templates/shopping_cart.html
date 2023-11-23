@@ -1,0 +1,75 @@
+{% extends "index.html" %}
+{% block content %}
+<main>
+    <div class="shopping-cart-container">  
+        <section class="shopping-cart">
+            <h2>Shopping Cart</h2>
+            <div class="cart-item">
+                <div class="cart-item-image-container">
+                    <img src="..\static\images\backpacks\blue_bag.jpg">
+                </div>
+                <div class="cart-item-details-container">
+                    <h3 class="cart-item-detail">Backpack #1</h3>
+                    <p class="cart-item-detail" id="cart-item-quantity">Qty: 1</p>
+                    <p class="cart-item-detail" id="cart-item-price">Price: $24.99</p><br/>
+                    <h4 class="cart-item-detail">Subtotal: $24.99</h4>
+                    <div class="cart-edit-rmv-container">
+                        <br/>
+                        <span>Edit</span>
+                        <span>Remove</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div class="cart-item-image-container">
+                    <img src="..\static\images\backpacks\blue_bag.jpg">
+                </div>
+                <div class="cart-item-details-container">
+                    <h3 class="cart-item-detail">Backpack #1</h3>
+                    <p class="cart-item-detail" id="cart-item-quantity">Qty: 1</p>
+                    <p class="cart-item-detail" id="cart-item-price">Price: $24.99</p><br/>
+                    <h4 class="cart-item-detail">Subtotal: $24.99</h4>
+                    <div class="cart-edit-rmv-container">
+                        <br/>
+                        <span>Edit</span>
+                        <span>Remove</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkout-box">
+            
+            <table class="checkout-summary-table">
+                <caption>Order Summary</caption>
+                <tbody class="checkout-summary-table-body">
+                    <tr>
+                        <th scope="row">Subtotal</th>
+                        <td>$24.99</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Shipping</th>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tax</th>
+                        <td>-</td>
+                    </tr>
+                    <tr class="order-total">
+                        <th scope="row">Order Total</th>
+                        <td>$24.99</td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" value="Continue to Checkout" class="continue-to-checkout-button">
+            <div class="secure-payment-container">
+                <p>Secure payment with</p>
+                <i class="fa-brands fa-cc-visa" style="color: #1d3557;"></i>
+                <i class="fa-brands fa-cc-mastercard" style="color: #1d3557;"></i>
+                <i class="fa-brands fa-cc-amex" style="color: #1d3557;"></i>
+                <i class="fa-brands fa-cc-paypal" style="color: #1d3557;"></i>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}
