@@ -15,11 +15,19 @@
                     <a href="{{ url_for('welcome') }}">
                         <img src="../static/images/logo.png" id="logo-image">
                     </a>
-                    <ul class="user-container">  
-                        <i class="fa-solid fa-user"></i>
-                        <li class="user">Sign In/Sign Up</li>
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <li class="user">Cart</li>
+                    <ul class="user-container">
+                        <a href="{{ url_for('shopping_cart') }}">
+                            <i class="fa-solid fa-user user-icon"></i>
+                        </a>
+                        <a href="{{ url_for('shopping_cart') }}">
+                            <li class="user">Sign In/Sign Up</li>
+                        </a>  
+                        <a href="{{ url_for('shopping_cart') }}">
+                            <i class="fa-solid fa-cart-shopping user-icon"></i>
+                        </a>
+                        <a href="{{ url_for('shopping_cart') }}">
+                            <li class="user">Cart</li>
+                        </a>
                     </ul>
                 </div>
 
@@ -98,6 +106,19 @@
         
         <footer>
         <!--TODO: add footer-->
+            <div class="footer-links-container">
+                <h4><a href="#About">About Us</a></h4>
+                <h4><a href="#Shop">Products</a></h4>
+                <h4><a href="#Contact">Contact</a></h4>
+            </div>
+            <hr class="footer-hr-line">
+            <p>Follow Us</p>
+            <div class="social-media-icons-container">
+                <i class="fa-brands fa-facebook" style="color: #f1faee;"></i>
+                <i class="fa-brands fa-twitter" style="color: #f1faee;"></i>
+                <i class="fa-brands fa-instagram" style="color: #f1faee;"></i>
+            </div>
+            <p class="copyright">Copyright © 2023 Example Website, Inc</p>
         </footer>
     </body>
 </html>

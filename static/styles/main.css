@@ -55,7 +55,7 @@ section {
     margin-right: 0.5rem;
 }
 
-.user-container > i, .user-container > li {
+.user-icon, .user {
     padding: 5px;
     background-color: inherit;
     color: rgb(29, 53, 87);
@@ -122,7 +122,7 @@ a:visited {
     background-color: rgb(110, 158, 188);
 }
 
-li > a {
+a {
     text-decoration: none;
     background-color: inherit;
 }
@@ -590,28 +590,187 @@ hr {
 
 .shopping-cart-container {
     display: flex;
-    border: 2px solid blue;
+    margin: 2rem 0 6rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .shopping-cart {
-    border: 2px solid green;
-    width: 66%;
+    margin: 1rem;
+    width: 60%;
+    min-width: 300px;
+    padding-right: 1rem;
 }
 
+.shopping-cart > h2 {
+    margin-bottom: 1rem;
+}
+
+.cart-item-image-container > img {
+    width: 120px;
+    aspect-ratio: 3 / 4;
+}
+
+.cart-item-details-container {
+    margin-left: 1rem;
+    width: 100%
+};
+
+.cart-item-details-container > h4 {
+    color: rgb(29, 53, 87)
+}
 
 .cart-item {
     display: flex;
+    padding: 0.5rem;
+    margin-left: 2rem;
+    border-bottom: 2px solid rgb(29, 53, 87);
 }
 
-.cart-item-details-container > span {
+.cart-item-detail {
+    padding: 0.2rem 0;
+}
+
+.cart-edit-rmv-container {
+    width: 100%;
+    text-align: right;
+}
+
+.cart-edit-rmv-container > span {
     cursor: pointer;
-    margin: 1rem;
+    margin: 1rem 0.5rem;
 }
 
 /* Checkout Box */
 .checkout-box {
-    border: 2px solid red;
-    width: 34%;
+    border-top: 6px solid rgb(69, 123, 157);
+    border-bottom: 6px solid rgb(69, 123, 157);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 30%;
+    min-width: 300px;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.checkout-summary-table > caption {
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+    color: rgb(29, 53, 87);
+}
+
+.checkout-summary-table {
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.checkout-summary-table-body > tr > th {
+    text-align: left;
+    height: 1.5rem;
+}
+
+.checkout-summary-table-body > tr > td {
+    text-align: right;
+    height: 1.5rem;
+}
+
+.order-total {
+    font-weight: bolder;
+    font-size: 1.2rem;
+    height: 3rem;
+}
+
+.order-total > th {
+    
+    vertical-align: bottom;
+}
+
+.order-total > td {
+    
+    vertical-align: bottom;
+}
+
+.continue-to-checkout-button {
+    cursor: pointer;
+    font-size: clamp(16px, 1.6vw, 40px);
+    width: 90%;
+    margin: 3.4rem 0 1rem;
+    padding: 5px;
+    color: rgb(241, 250, 238);
+    background-color: rgb(29, 53, 87);
+    border: none;
+    border-radius: 5px;
+}
+
+.continue-to-checkout-button:hover {
+    background-color: rgb(29, 53, 87, 0.75);
+}
+
+.secure-payment-container {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.secure-payment-container > i {
+    font-size: 2rem;
+    margin: 0.5rem 0.3rem;
+}
+
+footer {
+    background-color: rgb(29, 53, 87);
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+}
+
+.footer-links-container {
+    background-color: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    margin: auto;
+}
+
+.footer-links-container > h4 {
+    background-color: inherit;
+    color: rgb(241, 250, 238);
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+}
+
+.footer-hr-line {
+    margin: 1rem auto;
+    background-color:lightgray;
+    color:rgba(211, 211, 211, 0.253);
+    height: 1px;
+    width: 70%;
+    text-align: center;
+    border-style: solid;
+}
+
+footer > p {
+    background-color: inherit;
+    color: rgb(241, 250, 238);
+    padding-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.social-media-icons-container {
+    background-color: inherit
+}
+
+.social-media-icons-container > i {
+    background-color: inherit;
+    padding: 0.4rem 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.copyright {
+    font-size: small;
+    margin-top: 1.5rem;
 }
 
 /* Media Query */
@@ -628,6 +787,9 @@ hr {
     }
     .review-item-container {
         margin: 1.5rem 2rem;
+    }
+    .shopping-cart {
+        width: 90%;
     }
 }
 
