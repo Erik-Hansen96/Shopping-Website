@@ -1,3 +1,3 @@
 cd %~dp0
-python main.py
+flask --app flaskr run --debug
 pause

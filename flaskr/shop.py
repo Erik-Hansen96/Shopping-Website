@@ -18,16 +18,6 @@ def index():
     ).fetchall()
     return render_template('base.html', posts=posts)
 
-"""@bp.route('/shopping_cart')
-def shopping_cart():
-    if g.user is None:
-        return redirect(url_for('auth.login'))
-    user_id = g.get('user_id')
-    db = get_db()
-    cart_items = db.execute('SELECT products.name, products.price, CART.quantity FROM cart JOIN products ON cart.product_id = products.id WHERE user_id = ?', (user_id,)).fetchall()
-    for item in cart_items:
-            print("Product name:", item['name'])
-    return render_template('shop/shopping_cart.html', cart_items=cart_items)"""
 
 
 
@@ -39,16 +29,21 @@ def product_detail(product_id):
     return render_template('shop/product_detail.html', product=product)
 
 @bp.route('/products_list/<category>')
-def list(category):
+@bp.route('/products_list/')
+def list(category=None):
     with get_db() as db:
-        #products = db.execute('SELECT * FROM products WHERE category = ?', (category,)).fetchall()
-        print("Category:", category)
-        query = 'SELECT * FROM products WHERE category = ?'
-        products = db.execute(query, (category,)).fetchall()
-        for product in products:
-            print("Product name:", product['name'])
+        if category:
+            query = 'SELECT * FROM products WHERE category = ?'
+            products = db.execute(query, (category,)).fetchall()
+        else:
+            query = 'SELECT * FROM products'
+            products = db.execute(query).fetchall()
     return render_template('shop/products_list.html', products=products, category=category)
     
 @bp.route('/checkout')
 def checkout():
     return render_template('shop/checkout.html')
+
+@bp.route('/submit', methods=['POST'])
+def submit():
+    return render_template('shop/contactSuccess.html')

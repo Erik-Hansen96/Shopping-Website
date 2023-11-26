@@ -33,10 +33,10 @@
 
                 <nav>
                     <ul class="nav-container">
-                        <li class="nav-item"><a href="#Home">Home</a></li>
-                        <li class="nav-item"><a href="#Shop">Shop</a></li>
-                        <li class="nav-item"><a href="#About">About</a></li>
-                        <li class="nav-item"><a href="#Contact">Contact</a></li>
+                        <li class="nav-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="nav-item"><a href="{{ url_for('shop.list', category=category) }}">Shop</a></li>
+                        <li class="nav-item"><a href="{{ url_for('index') }}#About">About</a></li>
+                        <li class="nav-item"><a href="{{ url_for('index') }}#Contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -75,6 +75,7 @@
                         <p>Water Bottle</p>
                     </div>
                 </div>
+            </a>
             </section>
 
             <!--ABOUT Section-->
@@ -109,9 +110,9 @@
         <footer>
         <!--TODO: add footer-->
             <div class="footer-links-container">
-                <h4><a href="#About">About Us</a></h4>
-                <h4><a href="#Shop">Products</a></h4>
-                <h4><a href="#Contact">Contact</a></h4>
+                <h4><a href="{{ url_for('index') }}#About">About Us</a></h4>
+                <h4><a href="{{ url_for('shop.list', category=category) }}">Products</a></h4>
+                <h4><a href="{{ url_for('index') }}#Contact">Contact</a></h4>
             </div>
             <hr class="footer-hr-line">
             <p>Follow Us</p>
