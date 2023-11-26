@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Home{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="..\static\styles\main.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <!--Navigation Bar-->
+        <div class="sticky">
+            <div class="nav-bar">
+                <div class="user-panel">
+                    <a href="{{ url_for('index') }}">
+                        <img src="../static/styles/images/logo.png" id="logo-image">
+                    </a>
+                    <ul class="user-container">  
+                        <i class="fa-solid fa-user"></i>
+                    {% if g.user %}
+                        <li><span>{{ g.user['username'] }}</span>
+                        <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+                    {% else %}
+                            <li><a href="{{ url_for('auth.login') }}">Log In</a>
+                            <li><a href="{{ url_for('auth.register') }}">Register</a>
+                    {% endif %}
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <li class="user">Cart</li>
+                    </ul>
+                </div>
+
+                <nav>
+                    <ul class="nav-container">
+                        <li class="nav-item"><a href="#Home">Home</a></li>
+                        <li class="nav-item"><a href="#Shop">Shop</a></li>
+                        <li class="nav-item"><a href="#About">About</a></li>
+                        <li class="nav-item"><a href="#Contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+            <div class="ad-container">
+                <p class="ad">Free Shipping on Orders Over $89</p>
+            </div>
+        
+        <main>
+            {% block content %}
+            <!--HOME Section-->
+            <section class="home-container" id="Home">
+                <img src="../static/styles/images/background.jpg" id="home-img">
+                <div class="home-sign">
+                    <h1 id="home-message">Fall Sale! 20% Off ALL Items!</h1><br>
+                    <button type="button" id="shop-now-button">Shop Now</button>
+                </div>
+            </section>
+
+            <!--SHOP Section-->
+            <section class="shop-category-container" id="Shop">
+                <h2>Shop by Category</h2>
+                <div class="product-category-container">
+                    <a href="{{ url_for('shop.list', category='backpacks') }}">
+                        <div class="category" id="backpack" style="background-image: url('../static/styles/images/backpacks/bag_category.jpg');">
+                            <p>Backpacks</p>
+                        </div>
+                    </a>
+                    <a href="{{ url_for('shop.list', category='tote bags') }}">
+                    <div class="category" id="tote" style="background-image: url('../static/styles/images/totebags/tote_category.jpg');">
+                        <p>Tote Bags</p>
+                    </div>
+                    <a href="{{ url_for('shop.list', category='water bottles') }}">
+                    <div class="category" id="bottle" style="background-image: url('../static/styles/images/bottles/bottle_category.jpg');">
+                        <p>Water Bottle</p>
+                    </div>
+                </div>
+            </section>
+
+            <!--ABOUT Section-->
+            <section class="about-container" id="About">
+                <h2>About Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="about-icons">
+                    <img src="../static/styles/images/warranty.png">
+                    <img src="../static/styles/images/fairtrade.png">
+                    <img src="../static/styles/images/recycled.png">
+                </div>
+            </section>
+
+            <!--CONTACT Section-->
+            <section class="contact-container" id="Contact">
+                <h2>Contact Us</h2>
+                <form id="contact-form" action="/submit" method="POST">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="message">Message</label><br>
+                    <textarea id="message" name="message" placeholder="Type your message here." required></textarea><br>          
+                    <input type="submit" value="Submit" class="submit-button">
+                </form>
+            </section>
+            {% endblock %}
+        </main>
+        
+        <footer>
+        <!--TODO: add footer-->
+        <div class="footer-links-container">
+            <h4><a href="#About">About Us</a></h4>
+            <h4><a href="#Shop">Products</a></h4>
+            <h4><a href="#Contact">Contact</a></h4>
+        </div>
+        <hr class="footer-hr-line">
+        <p>Follow Us</p>
+        <div class="social-media-icons-container">
+            <i class="fa-brands fa-facebook" style="color: #f1faee;"></i>
+            <i class="fa-brands fa-twitter" style="color: #f1faee;"></i>
+            <i class="fa-brands fa-instagram" style="color: #f1faee;"></i>
+        </div>
+        <p class="copyright">Copyright © 2023 Example Website, Inc</p>
+    </footer>
+</body>
+</html>

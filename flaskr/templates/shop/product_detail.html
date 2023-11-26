@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="product-info">
+    <div class="product-info-images-container">
+        <img src="{{ product['image_path'] }}" class="product-info-image">
+        <img src="{{ product['image_path'] }}" class="product-info-image">
+        <img src="{{ product['image_path'] }}" class="product-info-image">  
+    </div>
+    <div class="product-add-to-cart-container">
+        <h1>{{ product['name'] }}</h1>
+        
+        <div class="product-info-rating">
+            <div class="product-rating">
+                <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+                <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+                <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+                <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+                <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+            </div>                   
+            <p>Write a Review</p>
+        </div>
+        <h3 class="out-of-stock">Out of Stock</h3>
+        <h2>${{ product['price'] }}</h2>
+        <div class="service-container">
+            <i class="fa-solid fa-truck" style="color: #1d3557;"></i>
+            <span>Expedited Shipping Available</span><br/>
+            <i class="fa-solid fa-box" style="color: #1d3557;"></i>
+            <span>Most items are returnable</span><br/>
+            <i class="fa-solid fa-comments" style="color: #1d3557;"></i>
+            <span>Customer Service Team available via phone, email, or chat</span>
+        </div>
+        <div class="quantity">
+            <label for="quantity">QTY</label>
+            <select type="select" id="quantity" name="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <input type="submit" value="Add to Cart" class="add-to-cart-button">
+        </div>
+    </div>              
+</section>
+
+<section class="product-detail">
+    <div class="details-box">
+        <h2 class="product-detail-header">DETAILS</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat orci nulla pellentesque dignissim enim sit amet. Morbi blandit cursus risus at ultrices mi. Lobortis feugiat vivamus at augue eget arcu dictum.</p>
+    </div>
+    <div class="features-box">
+        <h2 class="product-detail-header">FEATURES</h2>
+        <ul>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Odio tempor orci</li>
+            <li>Eget nulla facilisi </li>
+        </ul>
+    </div> 
+</section>
+
+<section class="product-review">
+    <h2>Reviews</h2>
+    <div class="review-item-container">
+        <div class="review-rating">
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+        </div>
+        <h3 class="review-title">TITLE OF REVIEW</h3>
+        <p>Porttitor rhoncus dolor purus non enim praesent. Bibendum arcu vitae elementum curabitur vitae. Non curabitur gravida arcu ac tortor. Proin sagittis nisl rhoncus mattis rhoncus urna. Mauris rhoncus aenean vel elit scelerisque mauris. Mauris a diam maecenas sed enim ut sem viverra aliquet. Amet dictum sit amet justo donec. Etiam erat velit scelerisque in dictum non consectetur a. A lacus vestibulum sed arcu.</p>
+    </div>
+    <div class="review-item-container">
+        <div class="review-rating">
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+            <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+        </div>
+        <h3 class="review-title">TITLE OF REVIEW</h3>
+        <p>Porttitor rhoncus dolor purus non enim praesent. Bibendum arcu vitae elementum curabitur vitae. Non curabitur gravida arcu ac tortor. Proin sagittis nisl rhoncus mattis rhoncus urna. Mauris rhoncus aenean vel elit scelerisque mauris. Mauris a diam maecenas sed enim ut sem viverra aliquet. Amet dictum sit amet justo donec. Etiam erat velit scelerisque in dictum non consectetur a. A lacus vestibulum sed arcu.</p>
+    </div>
+</section>
+</main>
+{% endblock %}
