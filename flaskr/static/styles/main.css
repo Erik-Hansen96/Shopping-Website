@@ -335,6 +335,7 @@ textarea {
     font-size: clamp(25px, 2.5vw, 50px);
     text-align: center;
     margin: 2rem 0 1rem;
+    color: rgb(29, 53, 87);
 }
 
 .product-container {

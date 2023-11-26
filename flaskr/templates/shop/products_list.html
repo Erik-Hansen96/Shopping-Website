@@ -1,23 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- products.html -->
-<h1>{{ category.capitalize() }}</h1>
-<ul class="product-container">
-    {% for product in products %}
-        <a href="{{ url_for('shop.product_detail', product_id=product['id']) }}">
-            <li class="product">
-                <img src="{{ product['image_path'] }}">
-                <div class="product-rating">
-                    <i class="fa-solid fa-star" style="color: #1d3557;"></i>
-                    <i class="fa-solid fa-star" style="color: #1d3557;"></i>
-                    <i class="fa-solid fa-star" style="color: #1d3557;"></i>
-                    <i class="fa-solid fa-star" style="color: #1d3557;"></i>
-                    <i class="fa-solid fa-star" style="color: #1d3557;"></i>
-                </div>
-                <p class="product-name">{{ product['name'] }}</p>
-                <p class="product-price">Price: ${{ product['price'] }}</p>
-            </li>
-        </a>
-    {% endfor %}
-</ul>
+<section class="product-section">
+    <h1>{{ category.capitalize() }}</h1>
+    <ul class="product-container">
+        {% for product in products %}
+            <a href="{{ url_for('shop.product_detail', product_id=product['id']) }}">
+                <li class="product">
+                    <img src="{{ product['image_path'] }}">
+                    <div class="product-rating">
+                        <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+                        <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+                        <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+                        <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+                        <i class="fa-solid fa-star" style="color: #1d3557;"></i>
+                    </div>
+                    <p class="product-name">{{ product['name'] }}</p>
+                    <p class="product-price">Price: ${{ product['price'] }}</p>
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+</section>
+<hr>
 {% endblock %}
