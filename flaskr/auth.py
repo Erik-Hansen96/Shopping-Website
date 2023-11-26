@@ -95,7 +95,12 @@ def add_to_cart(product_id):
     if user_id:
         db = get_db()
         quantity = int(request.form.get('quantity',1))
-        db.execute('INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)', (user_id, product_id, quantity))
+        find_product = db.execute('SELECT * FROM cart WHERE user_id = ? AND product_id = ?', (user_id, product_id)).fetchone()
+        if find_product:
+            update_quantity = find_product['quantity'] + quantity
+            db.execute('UPDATE cart SET quantity = ? WHERE user_id = ? AND product_id = ?', (update_quantity, user_id, product_id))
+        else:
+            db.execute('INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)', (user_id, product_id, quantity))
         db.commit()
         
         print("hellow")
@@ -110,7 +115,25 @@ def shopping_cart():
         return redirect(url_for('auth.login'))
     else:
         db = get_db()
-        cart_items = db.execute('SELECT products.id, products.name, products.price, products.image_path, CART.quantity FROM cart JOIN products ON cart.product_id = products.id WHERE user_id = ?', (user_id,)).fetchall()
-        return render_template('shop/shopping_cart.html', cart_items=cart_items)
+        query = '''
+            SELECT 
+                products.id, 
+                products.name, 
+                products.price, 
+                products.image_path, 
+                CART.quantity, 
+                ROUND(products.price * cart.quantity, 2) AS subtotal 
+            FROM 
+                cart 
+            JOIN 
+                products ON cart.product_id = products.id 
+            WHERE 
+                user_id = ?
+        '''
+        cart_items = db.execute(query, (user_id,)).fetchall()
+        total_price = 0
+        for product in cart_items:
+            total_price += product['subtotal']
+        return render_template('shop/shopping_cart.html', cart_items=cart_items, total_price=total_price)
 
 

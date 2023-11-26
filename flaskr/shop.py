@@ -49,3 +49,6 @@ def list(category):
             print("Product name:", product['name'])
     return render_template('shop/products_list.html', products=products, category=category)
     
+@bp.route('/checkout')
+def checkout():
+    return render_template('shop/checkout.html')

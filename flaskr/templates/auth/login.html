@@ -10,6 +10,9 @@
     <h2>Log In</h2>
     <div class="login-form-container">
       <form class="login-form" method="post">
+        {% for message in get_flashed_messages() %}
+          <div class="flash">{{ message }}</div>
+          {% endfor %}
         <label for="username">Username*</label><br>
         <input class="userInfo" name="username" id="username" required><br><br>
         <label for="password">Password*</label><br>

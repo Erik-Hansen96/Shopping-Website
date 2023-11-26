@@ -14,8 +14,8 @@
                         <h3 class="cart-item-detail">{{ product['name'] }}</h3>
                     </a>
                         <p class="cart-item-detail" id="cart-item-quantity">Qty: {{ product['quantity'] }}</p>
-                        <p class="cart-item-detail" id="cart-item-price">Price: {{ product['price'] }}</p><br/>
-                        <h4 class="cart-item-detail">Subtotal: {{ product['quantity'] * product['price'] }}</h4>
+                        <p class="cart-item-detail" id="cart-item-price">Price: ${{ product['price'] }}</p><br/>
+                        <h4 class="cart-item-detail">Subtotal: ${{ "{:.2f}".format(product['subtotal']) }}</h4>
                         <div class="cart-edit-rmv-container">
                             <br/>
                             <span>Edit</span>
@@ -33,7 +33,7 @@
                 <tbody class="checkout-summary-table-body">
                     <tr>
                         <th scope="row">Subtotal</th>
-                        <td>$24.99</td>
+                        <td>${{ total_price }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Shipping</th>
@@ -45,11 +45,13 @@
                     </tr>
                     <tr class="order-total">
                         <th scope="row">Order Total</th>
-                        <td>$24.99</td>
+                        <td>${{ total_price }}</td>
                     </tr>
                 </tbody>
             </table>
+            <a href="{{ url_for('shop.checkout') }}">
             <input type="submit" value="Continue to Checkout" class="continue-to-checkout-button">
+            </a>
             <div class="secure-payment-container">
                 <p>Secure payment with</p>
                 <i class="fa-brands fa-cc-visa" style="color: #1d3557;"></i>
