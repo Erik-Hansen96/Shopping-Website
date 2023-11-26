@@ -2,7 +2,7 @@
 {% block content %}
 <!-- products.html -->
 <h1>{{ category.capitalize() }}</h1>
-<ul>
+<ul class="product-container">
     {% for product in products %}
         <a href="{{ url_for('shop.product_detail', product_id=product['id']) }}">
             <li class="product">
