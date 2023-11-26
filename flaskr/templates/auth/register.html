@@ -5,11 +5,25 @@
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Register">
-  </form>
+  <section class="sign-up-container">
+      <h2>Create an account</h2>
+      <div class="sign-up-form-container">
+        <form class="sign-up-form" method="post">
+          <label for="username">Username</label><br>
+          <input class="userInfo" name="username" id="username" required><br><br>
+          <label for="password">Password</label><br>
+          <input class="userInfo" type="password" name="password" id="password" required><br><br>
+          <label for="password-confirm">Confirm Password</label><br>
+          <input class="userInfo" type="password" name="password" id="password" required><br><br>
+          <label for="email">Email</label><br>
+          <input class="userInfo" name="email" id="email" required><br><br>      
+          <input class="sign-up-button" type="submit" value="Sign Up">
+          <div class="login-redirect">
+            <p>Have an account? <a href="{{ url_for('auth.login') }}"><span class="sign-in-link">Sign In</span></a></p>
+          </div>
+        </form>
+        
+      </div>
+      
+  </section>
 {% endblock %}

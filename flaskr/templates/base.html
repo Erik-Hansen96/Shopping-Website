@@ -15,19 +15,19 @@
                     <a href="{{ url_for('index') }}">
                         <img src="../static/styles/images/logo.png" id="logo-image">
                     </a>
-                    <ul class="user-container">  
-                        <i class="fa-solid fa-user"></i>
+                    <ul class="user-container">        
+                        <i class="fa-solid fa-user user-icon"></i>
                     {% if g.user %}
-                        <li><span>{{ g.user['username'] }}</span>
-                        <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-                    {% else %}
-                            <li><a href="{{ url_for('auth.login') }}">Log In</a>
-                            <li><a href="{{ url_for('auth.register') }}">Register</a>
+                        <li class="user">{{ g.user['username'] }}</li>
+                        <li class="user"><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+                    {% else %} 
+                        <li class="user"><a href="{{ url_for('auth.login') }}">Log In/Sign Up</a></li>
                     {% endif %}
                     <a href="{{ url_for('auth.shopping_cart') }}">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <li class="user">Cart</li>
-                    </a>
+                        <i class="fa-solid fa-cart-shopping user-icon"></i>
+                    </a>    
+                    <li class="user"><a href="{{ url_for('auth.shopping_cart') }}">Cart</a></li>
+                    
                     </ul>
                 </div>
 
@@ -50,7 +50,7 @@
             {% block content %}
             <!--HOME Section-->
             <section class="home-container" id="Home">
-                <img src="../static/styles/images/background.jpg" id="home-img">
+                <img src="../../static/styles/images/background.jpg" id="home-img">
                 <div class="home-sign">
                     <h1 id="home-message">Fall Sale! 20% Off ALL Items!</h1><br>
                     <button type="button" id="shop-now-button">Shop Now</button>

@@ -5,11 +5,28 @@
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Log In">
-  </form>
+<section class="login-container">
+  <div class="login-box">
+    <h2>Log In</h2>
+    <div class="login-form-container">
+      <form class="login-form" method="post">
+        <label for="username">Username*</label><br>
+        <input class="userInfo" name="username" id="username" required><br><br>
+        <label for="password">Password*</label><br>
+        <input class="userInfo" type="password" name="password" id="password" required><br>
+        <input class="login-button" type="submit" value="Log In">
+      </form>
+    </div>
+    <hr class="login-hr">
+    <div class="redirect-to-sign-up">
+      <h3>Don't have an account?</h3>
+      <a href="{{ url_for('auth.register') }}">
+        <input class="create-account-button" type="submit" value="Create an account">
+      </a>
+      </div>
+  </div>
+  <div class="login-image-container">
+    <img src="../../static/styles/images/login_background.jpg" id="login-image">
+  </div>
+</section>
 {% endblock %}
