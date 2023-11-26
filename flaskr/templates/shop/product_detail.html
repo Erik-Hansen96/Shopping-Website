@@ -29,17 +29,19 @@
             <i class="fa-solid fa-comments" style="color: #1d3557;"></i>
             <span>Customer Service Team available via phone, email, or chat</span>
         </div>
-        <div class="quantity">
-            <label for="quantity">QTY</label>
-            <select type="select" id="quantity" name="quantity">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <input type="submit" value="Add to Cart" class="add-to-cart-button">
-        </div>
+        <form action="{{url_for('auth.add_to_cart', product_id=product['id']) }}" method="post">
+            <div class="quantity">
+                <label for="quantity">QTY</label>
+                <select type="select" id="quantity" name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input type="submit" value="Add to Cart" class="add-to-cart-button">
+            </div>
+        </form>
     </div>              
 </section>
 

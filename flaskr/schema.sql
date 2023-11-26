@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS cart;
 
 CREATE TABLE USER (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -14,4 +15,13 @@ CREATE TABLE products (
     description TEXT,
     price REAL NOT NULL,
     image_path TEXT
+);
+
+CREATE TABLE cart (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    product_id INTEGER,
+    quantity INTEGER,
+    FOREIGN KEY (user_id) REFERENCES USER(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
 );

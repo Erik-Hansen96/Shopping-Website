@@ -4,38 +4,26 @@
     <div class="shopping-cart-container">  
         <section class="shopping-cart">
             <h2>Shopping Cart</h2>
-            <div class="cart-item">
-                <div class="cart-item-image-container">
-                    <img src="..\static\styles\images\backpacks\blue_bag.jpg">
-                </div>
-                <div class="cart-item-details-container">
-                    <h3 class="cart-item-detail">Backpack #1</h3>
-                    <p class="cart-item-detail" id="cart-item-quantity">Qty: 1</p>
-                    <p class="cart-item-detail" id="cart-item-price">Price: $24.99</p><br/>
-                    <h4 class="cart-item-detail">Subtotal: $24.99</h4>
-                    <div class="cart-edit-rmv-container">
-                        <br/>
-                        <span>Edit</span>
-                        <span>Remove</span>
+            {% for product in cart_items %}
+            <a href="{{ url_for('shop.product_detail', product_id=product['id']) }}">
+                <div class="cart-item">
+                    <div class="cart-item-image-container">
+                        <img src="{{ product['image_path'] }}">
+                    </div>
+                    <div class="cart-item-details-container">
+                        <h3 class="cart-item-detail">{{ product['name'] }}</h3>
+                    </a>
+                        <p class="cart-item-detail" id="cart-item-quantity">Qty: {{ product['quantity'] }}</p>
+                        <p class="cart-item-detail" id="cart-item-price">Price: {{ product['price'] }}</p><br/>
+                        <h4 class="cart-item-detail">Subtotal: {{ product['quantity'] * product['price'] }}</h4>
+                        <div class="cart-edit-rmv-container">
+                            <br/>
+                            <span>Edit</span>
+                            <span>Remove</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="cart-item">
-                <div class="cart-item-image-container">
-                    <img src="..\static\styles\images\backpacks\blue_bag.jpg">
-                </div>
-                <div class="cart-item-details-container">
-                    <h3 class="cart-item-detail">Backpack #1</h3>
-                    <p class="cart-item-detail" id="cart-item-quantity">Qty: 1</p>
-                    <p class="cart-item-detail" id="cart-item-price">Price: $24.99</p><br/>
-                    <h4 class="cart-item-detail">Subtotal: $24.99</h4>
-                    <div class="cart-edit-rmv-container">
-                        <br/>
-                        <span>Edit</span>
-                        <span>Remove</span>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </section>
 
         <section class="checkout-box">

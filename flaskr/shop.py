@@ -18,9 +18,18 @@ def index():
     ).fetchall()
     return render_template('base.html', posts=posts)
 
-@bp.route('/shopping_cart')
+"""@bp.route('/shopping_cart')
 def shopping_cart():
-    return render_template('shop/shopping_cart.html')
+    if g.user is None:
+        return redirect(url_for('auth.login'))
+    user_id = g.get('user_id')
+    db = get_db()
+    cart_items = db.execute('SELECT products.name, products.price, CART.quantity FROM cart JOIN products ON cart.product_id = products.id WHERE user_id = ?', (user_id,)).fetchall()
+    for item in cart_items:
+            print("Product name:", item['name'])
+    return render_template('shop/shopping_cart.html', cart_items=cart_items)"""
+
+
 
 @bp.route('/product_detail/<int:product_id>')
 def product_detail(product_id):

@@ -57,14 +57,6 @@ def init_db():
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
 
-
-
-@click.command('product-fill')
-def product_fill_command():
-    """Insert products with images."""
-    fill_products()
-    click.echo('Filled products.')
-
 @click.command('init-db')
 def init_db_command():
     """Clear the existing data and create new tables."""

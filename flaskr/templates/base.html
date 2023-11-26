@@ -24,8 +24,10 @@
                             <li><a href="{{ url_for('auth.login') }}">Log In</a>
                             <li><a href="{{ url_for('auth.register') }}">Register</a>
                     {% endif %}
+                    <a href="{{ url_for('auth.shopping_cart') }}">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <li class="user">Cart</li>
+                    </a>
                     </ul>
                 </div>
 
@@ -106,19 +108,19 @@
         
         <footer>
         <!--TODO: add footer-->
-        <div class="footer-links-container">
-            <h4><a href="#About">About Us</a></h4>
-            <h4><a href="#Shop">Products</a></h4>
-            <h4><a href="#Contact">Contact</a></h4>
-        </div>
-        <hr class="footer-hr-line">
-        <p>Follow Us</p>
-        <div class="social-media-icons-container">
-            <i class="fa-brands fa-facebook" style="color: #f1faee;"></i>
-            <i class="fa-brands fa-twitter" style="color: #f1faee;"></i>
-            <i class="fa-brands fa-instagram" style="color: #f1faee;"></i>
-        </div>
-        <p class="copyright">Copyright © 2023 Example Website, Inc</p>
-    </footer>
-</body>
+            <div class="footer-links-container">
+                <h4><a href="#About">About Us</a></h4>
+                <h4><a href="#Shop">Products</a></h4>
+                <h4><a href="#Contact">Contact</a></h4>
+            </div>
+            <hr class="footer-hr-line">
+            <p>Follow Us</p>
+            <div class="social-media-icons-container">
+                <i class="fa-brands fa-facebook" style="color: #f1faee;"></i>
+                <i class="fa-brands fa-twitter" style="color: #f1faee;"></i>
+                <i class="fa-brands fa-instagram" style="color: #f1faee;"></i>
+            </div>
+            <p class="copyright">Copyright © 2023 Example Website, Inc</p>
+        </footer>
+    </body>
 </html>

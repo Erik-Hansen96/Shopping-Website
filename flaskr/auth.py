@@ -88,3 +88,29 @@ def login_required(view):
         return view(**kwargs)
 
     return wrapped_view
+
+@bp.route('/add_to_cart/<int:product_id>', methods=['POST'])
+def add_to_cart(product_id):
+    user_id = session.get('user_id')
+    if user_id:
+        db = get_db()
+        quantity = int(request.form.get('quantity',1))
+        db.execute('INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)', (user_id, product_id, quantity))
+        db.commit()
+        
+        print("hellow")
+        return redirect(url_for('auth.shopping_cart'))
+    else:
+        return redirect(url_for('auth.login'))
+    
+@bp.route('/shopping_cart')
+def shopping_cart():
+    user_id = session.get('user_id')
+    if user_id is None:
+        return redirect(url_for('auth.login'))
+    else:
+        db = get_db()
+        cart_items = db.execute('SELECT products.id, products.name, products.price, products.image_path, CART.quantity FROM cart JOIN products ON cart.product_id = products.id WHERE user_id = ?', (user_id,)).fetchall()
+        return render_template('shop/shopping_cart.html', cart_items=cart_items)
+
+
