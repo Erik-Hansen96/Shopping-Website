@@ -40,7 +40,13 @@ def fill_products():
         ('Tote Bag #5', 'tote bags', 'Description', 19.99, '../static/styles/images/totebags/huevos_tote.jpg'),
         ('Tote Bag #6', 'tote bags', 'Description', 19.99, '../static/styles/images/totebags/icecream_tote.jpg'),
         ('Tote Bag #7', 'tote bags', 'Description', 19.99, '../static/styles/images/totebags/rabbit_tote.jpg'),
-        ('Tote Bag #8', 'tote bags', 'Description', 19.99, '../static/styles/images/totebags/rwb_tote.jpg')
+        ('Tote Bag #8', 'tote bags', 'Description', 19.99, '../static/styles/images/totebags/rwb_tote.jpg'),
+        ('Water Bottle #1', 'water bottles', 'Description', 12.99, '../static/styles/images/bottles/brown_bottle.jpg'),
+        ('Water Bottle #2', 'water bottles', 'Description', 12.99, '../static/styles/images/bottles/gray_bottle.jpg'),
+        ('Water Bottle #3', 'water bottles', 'Description', 12.99, '../static/styles/images/bottles/green_bottle.jpg'),
+        ('Water Bottle #4', 'water bottles', 'Description', 12.99, '../static/styles/images/bottles/pink_bottle.jpg'),
+        ('Water Bottle #5', 'water bottles', 'Description', 12.99, '../static/styles/images/bottles/purple_bottle.jpg'),
+        ('Water Bottle #6', 'water bottles', 'Description', 12.99, '../static/styles/images/bottles/white_bottle.jpg')
         
     ]
     for product in products_info:
