@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="..\static\styles\main.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-        <script src="script.js"></script>
+        <!--<script src="../static/styles/script.js"></script>-->
     </head>
     <body>
         <!--Navigation Bar-->
@@ -92,23 +92,23 @@
             <!--CONTACT Section-->
             <section class="contact-container" id="Contact">
                 <h2>Contact Us</h2>
-                <form id="contact-form" action="/submit" method="POST">
+                <form id="contact-form" action="/submit" method="POST" value="Submit">
                     <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="fname"><br>
+                    <input class="contact-input" type="text" id="fname" name="fname"><br>
                     <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lname"><br>
+                    <input class="contact-input" type="text" id="lname" name="lname"><br>
                     <label for="email">Email*</label>
-                    <input type="email" id="email" name="email" required><br>
+                    <input class="contact-input" type="email" id="email" name="email" required><br>
                     <label for="message">Message</label><br>
                     <textarea id="message" name="message" placeholder="Type your message here." required></textarea><br>          
-                    <input type="submit" value="Submit" class="submit-button">
+                    <input type="submit" class="submit-button" id="contact-button">
                 </form>
             </section>
+
             {% endblock %}
         </main>
         
         <footer>
-        <!--TODO: add footer-->
             <div class="footer-links-container">
                 <h4><a href="{{ url_for('index') }}#About">About Us</a></h4>
                 <h4><a href="{{ url_for('shop.list', category=category) }}">Products</a></h4>

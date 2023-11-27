@@ -1,12 +1,29 @@
+<!DOCTYPE html>
 <html>
+    <head>
+        <title>Thank you!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="..\..\static\styles\main.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <!--<script src="../static/styles/script.js"></script>-->
+    </head>
+    <body id="contact-page" onload="JavaScript:timedRedirect()">
+        <div class="contact-success-container">
+            <div class="checkmark-container">
+                <i id="checkmark" class="fa-solid fa-check" style="color: rgb(29, 53, 87);"></i>
+            </div>
+            <div class="contact-message">
+                <h1 id="thank-you-message">Thank you!</h1>
+                <h1 id="confirm-message">We have received your message</h1>
+            </div>
+        </div>
+        <script>
+            redirectTime = "2000";
+            redirectURL = "{{ url_for('index') }}";
 
-<body>
-
-    <h1>
-            Thank you for contacting us! You will usually recieve a reply within 24 hours.
-    </h1>
-
-
-</body>
-
+            function timedRedirect() {
+                setTimeout("location.href = redirectURL;", redirectTime);
+            }
+        </script>
+    </body>
 </html>

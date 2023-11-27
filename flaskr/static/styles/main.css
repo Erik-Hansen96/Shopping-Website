@@ -220,7 +220,7 @@ section {
 .nav-bar {
     position: sticky;
     top: -1px;
-    z-index: 999;
+    z-index: 50;
     
 }
 
@@ -250,7 +250,7 @@ section {
 .sticky {
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 50;
 }
 
 a:link {
@@ -426,11 +426,10 @@ h2 {
 #contact-form > label {
     background-color: transparent;
     color: rgb(29, 53, 87);
-    float: left;
-    
+    float: left;    
 }
 
-#contact-form > input {
+.contact-input {
     width: 100%;
     margin: 6px 6px 16px 6px;
     padding: 1px 5px;
@@ -464,11 +463,64 @@ textarea {
     background-color: rgb(29, 53, 87);
     border: 2px solid rgb(29, 53, 87);
     margin: auto;
-    
 }
 
 .submit-button:hover {
     background-color: rgba(29, 53, 87, 0.616);
+}
+
+/* Contact Success Page */
+#contact-page {
+    background-color: rgb(110, 158, 188);
+    width: 100%;
+    height: 100vh;
+    
+}
+.contact-success-container {
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    padding-top: 6%;
+    background-color: transparent;    
+}
+
+.checkmark-container {
+    background-color: rgb(241, 250, 238);
+    width: fit-content;
+    border-radius: 50%;
+    margin: 0 auto 4%;
+    border: 7px solid rgb(29, 53, 87);
+}
+
+#checkmark {
+    font-size: clamp(1.35rem, -0.6261rem + 9.8804vw, 7.0313rem);
+    background-color: transparent;
+    padding: 2rem;
+}
+
+.contact-message {
+    border: 3px solid rgb(168, 218, 220);
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 0.5rem;
+}
+
+#thank-you-message {
+    font-size: clamp(1.125rem, -0.4402rem + 7.8261vw, 5.625rem);
+    color:rgb(29, 53, 87);
+}
+
+#confirm-message {
+    color: rgb(117, 113, 113);
+    padding: 0.1rem 0 0.7rem;
+    font-size: clamp(0.5425rem, -0.0701rem + 3.063vw, 2.3038rem);
+}
+
+#redirect-home {
+    width: fit-content;
+    margin: 1rem;
+    background-color: transparent;
+    color: rgb(241, 250, 238);
 }
 
 /* PRODUCTS*/
