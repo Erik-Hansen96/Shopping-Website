@@ -42,3 +42,7 @@ def list(category=None):
 @bp.route('/submit', methods=['POST'])
 def submit():
     return render_template('shop/contactSuccess.html')
+
+@bp.route('/checkoutConfirmation')
+def checkoutConfirmation():
+    return render_template('shop/checkoutConfirmation.html')

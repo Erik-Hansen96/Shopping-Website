@@ -18,8 +18,9 @@
                         <h4 class="cart-item-detail">Subtotal: ${{ "{:.2f}".format(product['subtotal']) }}</h4>
                         <div class="cart-edit-rmv-container">
                             <br/>
-                            <span>Edit</span>
+                            <a href="{{url_for('auth.remove_from_cart', product_id=product['id']) }}">
                             <span>Remove</span>
+                            </a>
                         </div>
                     </div>
                 </div>

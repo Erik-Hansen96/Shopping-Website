@@ -93,7 +93,18 @@ def add_to_cart(product_id):
             db.execute('INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)', (user_id, product_id, quantity))
         db.commit()
         
-        print("hellow")
+        return redirect(url_for('auth.shopping_cart'))
+    else:
+        return redirect(url_for('auth.login'))
+    
+@bp.route('/remove_from_cart/<int:product_id>', methods=['GET', 'POST'])
+def remove_from_cart(product_id):
+    user_id = session.get('user_id')
+    if user_id:
+        db = get_db()
+        db.execute('DELETE FROM cart WHERE user_id = ? AND product_id = ?', (user_id, product_id))
+        db.commit()
+        
         return redirect(url_for('auth.shopping_cart'))
     else:
         return redirect(url_for('auth.login'))
