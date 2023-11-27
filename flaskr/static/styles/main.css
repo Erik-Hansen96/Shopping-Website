@@ -473,9 +473,9 @@ textarea {
 #contact-page {
     background-color: rgb(110, 158, 188);
     width: 100%;
-    height: 100vh;
-    
+    height: 100vh;  
 }
+
 .contact-success-container {
     text-align: center;
     width: 60%;
@@ -522,6 +522,12 @@ textarea {
     background-color: transparent;
     color: rgb(241, 250, 238);
 }
+
+#thank-you-order {
+    font-size: clamp(0.9375rem, -0.3016rem + 6.1957vw, 4.5rem);
+    color:rgb(29, 53, 87);
+}
+
 
 /* PRODUCTS*/
 
@@ -593,14 +599,12 @@ hr {
 
 /* Product Details */
 .product-info {
-    
     display: flex;
     flex-direction: row;
     margin: 3.5rem 0;
 }
 
 .product-info-images-container {
-    
     width: 55%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -654,6 +658,7 @@ hr {
 }
 
 .out-of-stock {
+    visibility:hidden;
     color: red;
     padding: 0.4rem 0.5rem;
 }
@@ -1211,11 +1216,29 @@ footer > p {
         padding: 0.5rem 1.2rem;
     }
     #contact-form {
-        width: 65%;
+        width: 440px;
     }
     .review-item-container {
         margin: 1.5rem 2rem;
     }
+
+    .product-info {
+        display: flex;
+        flex-direction: row;
+        margin: 3.5rem 0;
+        flex-wrap: wrap-reverse;
+    }
+    
+    .product-info-images-container {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .product-add-to-cart-container {
+        width: fit-content;
+        margin: -1rem auto 1rem;
+    }
+
     .shopping-cart {
         width: 90%;
     }
@@ -1256,8 +1279,13 @@ footer > p {
     .about-container > p {
         padding: 0.5rem 1.0rem;
     }
+
+    .about-icons > img {
+        width: 100px;
+    }
+
     #contact-form {
-        width: 80%;
+        width: 310px;
     }
 
     .review-item-container {
