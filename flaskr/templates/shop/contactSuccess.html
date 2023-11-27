@@ -7,7 +7,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
         <!--<script src="../static/styles/script.js"></script>-->
     </head>
-    <body id="contact-page" onload="JavaScript:timedRedirect()">
+    <!--"-->
+    <body id="contact-page" onload="JavaScript:timedRedirect()" >
         <div class="contact-success-container">
             <div class="checkmark-container">
                 <i id="checkmark" class="fa-solid fa-check" style="color: rgb(29, 53, 87);"></i>
@@ -18,7 +19,7 @@
             </div>
         </div>
         <script>
-            redirectTime = "2000";
+            redirectTime = "3000";
             redirectURL = "{{ url_for('index') }}";
 
             function timedRedirect() {

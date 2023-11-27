@@ -83,7 +83,6 @@ section {
     width: fit-content;
     margin: auto;
     padding: 2rem;
-    text-align: center;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     position: relative;
@@ -103,7 +102,7 @@ section {
     font-size: 1.1rem;
 }
 
-.login-form > label {
+.login-form > label, .sign-up-form > label {
     padding-left: 7px;
     font-weight: bold;
     font-size: 1.3rem;
@@ -112,6 +111,10 @@ section {
 
 .login-button {
     margin-top: 3rem;
+}
+
+.login-signup-button-container {
+    text-align: center;
 }
 
 .login-button, .sign-up-button {
@@ -136,9 +139,18 @@ section {
     object-fit: cover;
     padding: 1px 0;
     height: 100%;
-    
-    
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #000000;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: none;
+}
+
 
 /* Sign Up */
 .sign-up-container {
@@ -168,6 +180,7 @@ section {
 
 .login-redirect {
     margin-top: 0.6rem;
+    text-align: center;
 }
 .sign-in-link {
     font-weight: bold;
@@ -479,9 +492,14 @@ textarea {
 .contact-success-container {
     text-align: center;
     width: 60%;
+    height: fit-content;
     margin: auto;
-    padding-top: 6%;
     background-color: transparent;    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0
 }
 
 .checkmark-container {
@@ -493,7 +511,7 @@ textarea {
 }
 
 #checkmark {
-    font-size: clamp(1.35rem, -0.6261rem + 9.8804vw, 7.0313rem);
+    font-size: clamp(3rem, -0.6261rem + 9.8804vw, 7.0313rem);
     background-color: transparent;
     padding: 2rem;
 }
@@ -506,14 +524,16 @@ textarea {
 }
 
 #thank-you-message {
-    font-size: clamp(1.125rem, -0.4402rem + 7.8261vw, 5.625rem);
+    font-size: clamp(1.9rem, -0.4402rem + 7.8261vw, 5.625rem);
     color:rgb(29, 53, 87);
+    border-radius: 5px 5px 0 0;
 }
 
 #confirm-message {
     color: rgb(117, 113, 113);
     padding: 0.1rem 0 0.7rem;
-    font-size: clamp(0.5425rem, -0.0701rem + 3.063vw, 2.3038rem);
+    border-radius: 0 0 5px 5px;
+    font-size: clamp(0.8rem, -0.0701rem + 3.063vw, 2.3038rem);
 }
 
 #redirect-home {
@@ -524,8 +544,10 @@ textarea {
 }
 
 #thank-you-order {
-    font-size: clamp(0.9375rem, -0.3016rem + 6.1957vw, 4.5rem);
+    font-size: clamp(1.5rem, -0.3016rem + 6.1957vw, 4.5rem);
     color:rgb(29, 53, 87);
+    border-radius: 5px 5px 0 0;
+    padding: 0.2rem 0.3rem 0;
 }
 
 
@@ -852,6 +874,7 @@ hr {
     margin: 1rem;
     padding: 1rem;
     text-align: center;
+    height: fit-content;
 }
 
 .checkout-summary-table > caption {
@@ -913,8 +936,8 @@ hr {
     text-align: center;
     margin-top: 0.5rem;
 }
-/*.credit-card-prompt > i */
-.secure-payment-container > i {
+
+.secure-payment-container > i, .credit-card-prompt > i {
     font-size: 2rem;
     margin: 0.5rem 0.3rem;
 }
@@ -1310,5 +1333,19 @@ footer > p {
     }
     .redirect-to-sign-up {
         margin-bottom: 1rem;
+    }
+    .credit-card-container {
+        width: 90%;
+        min-width: 300px;
+    }
+    .credit-card-prompt > span {
+        margin-right: 6rem;
+    }
+    .credit-card-prompt {
+        padding-top: 0.3rem;
+    }
+
+    .contact-success-container {
+       width: 70%;
     }
 }

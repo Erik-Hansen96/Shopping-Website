@@ -19,9 +19,11 @@
           <label for="password-confirm">Confirm Password</label><br>
           <input class="userInfo" type="password" name="password" id="password" required><br><br>
           <label for="email">Email</label><br>
-          <input class="userInfo" name="email" id="email" required><br><br>      
-          <input class="sign-up-button" type="submit" value="Sign Up">
-          <div class="login-redirect">
+          <input class="userInfo" name="email" id="email" required><br><br>
+          <div class="login-signup-button-container">    
+            <input class="sign-up-button" type="submit" value="Sign Up">
+          </div>  
+            <div class="login-redirect">
             <p>Have an account? <a href="{{ url_for('auth.login') }}"><span class="sign-in-link">Sign In</span></a></p>
           </div>
         </form>
