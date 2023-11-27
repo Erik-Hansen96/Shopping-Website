@@ -3,7 +3,7 @@ from flask import (
 )
 from werkzeug.exceptions import abort
 
-from flaskr.auth import login_required
+
 from flaskr.db import get_db
 
 bp = Blueprint('shop', __name__)
@@ -17,9 +17,6 @@ def index():
         ' ORDER BY created DESC'
     ).fetchall()
     return render_template('base.html', posts=posts)
-
-
-
 
 @bp.route('/product_detail/<int:product_id>')
 def product_detail(product_id):
@@ -40,9 +37,7 @@ def list(category=None):
             products = db.execute(query).fetchall()
     return render_template('shop/products_list.html', products=products, category=category)
     
-@bp.route('/checkout')
-def checkout():
-    return render_template('shop/checkout.html')
+
 
 @bp.route('/submit', methods=['POST'])
 def submit():

@@ -33,7 +33,7 @@
                 <tbody class="checkout-summary-table-body">
                     <tr>
                         <th scope="row">Subtotal</th>
-                        <td>${{ total_price }}</td>
+                        <td>${{"{:.2f}".format(total_price) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Shipping</th>
@@ -45,11 +45,11 @@
                     </tr>
                     <tr class="order-total">
                         <th scope="row">Order Total</th>
-                        <td>${{ total_price }}</td>
+                        <td>${{"{:.2f}".format(total_price) }}</td>
                     </tr>
                 </tbody>
             </table>
-            <a href="{{ url_for('shop.checkout') }}">
+            <a href="{{ url_for('auth.checkout') }}">
             <input type="submit" value="Continue to Checkout" class="continue-to-checkout-button">
             </a>
             <div class="secure-payment-container">

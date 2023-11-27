@@ -18,69 +18,63 @@
         </section>
         <section class="shipping-cost-container">
             <h3>Shipping Method</h3>
-            <div class="shipping-option-container">
-                <div class="shipping-option">
-                    <input type="radio" id="standard" name="shipping" value="standard" checked>
-                    <label for="standard">
-                        <span class="shipping-type">STANDARD</span>
-                        <span class="shipping-time">5-7 business days</span>
-                        <span class="shipping-cost">$5.00</span>
-                    </label><br>
+            <form action="{{ url_for('auth.checkout') }}" method="post">
+                <div class="shipping-option-container">
+                    <div class="shipping-option">
+                        <input type="radio" id="standard" name="shipping" value="standard" onchange="this.form.submit()" {% if selected_shipping == 'standard' %}checked{% endif %}>
+                        <label for="standard">
+                            <span class="shipping-type">STANDARD</span>
+                            <span class="shipping-time">5-7 business days</span>
+                            <span class="shipping-cost">$5.00</span>
+                        </label><br>
+                    </div>
+                    <div class="shipping-option">
+                        <input type="radio" id="express" name="shipping" value="express" onchange="this.form.submit()" {% if selected_shipping == 'express' %}checked{% endif %}>
+                        <label for="express">
+                            <span class="shipping-type">EXPRESS</span>
+                            <span class="shipping-time">2-3 business days</span>
+                            <span class="shipping-cost">$18.95</span>
+                        </label><br>
+                    </div>
+                    <div class="shipping-option">
+                        <input type="radio" id="overnight" name="shipping" value="overnight"  onchange="this.form.submit()" {% if selected_shipping == 'overnight' %}checked{% endif %}>
+                        <label for="overnight">
+                            <span class="shipping-type">OVERNIGHT</span>
+                            <span class="shipping-time">1-2 business days</span>
+                            <span class="shipping-cost">$21.95</span>
+                        </label>
+                    </div>
                 </div>
-            
-                <div class="shipping-option">
-                    <input type="radio" id="express" name="shipping" value="express">
-                    <label for="express">
-                        <span class="shipping-type">EXPRESS</span>
-                        <span class="shipping-time">2-3 business days</span>
-                        <span class="shipping-cost">$18.95</span>
-                    </label><br>
-                </div>
-            
-                <div class="shipping-option">
-                    <input type="radio" id="overnight" name="shipping" value="overnight">
-                    <label for="overnight">
-                        <span class="shipping-type">OVERNIGHT</span>
-                        <span class="shipping-time">1-2 business days</span>
-                        <span class="shipping-cost">$21.95</span>
-                    </label>
-                </div>
-            </div>
+            </form>
         </section>
 
         <section class="checkout-order-summary-container">
             <h2>Items in Cart</h2>
             <div class="checkout-order-list">
+            {% for product in cart_items %}
                 <div class="checkout-item">
-                    <img src="../../static/styles/images/backpacks/blue_bag.jpg">
+                    <img src="{{ product['image_path'] }}">
                     <div class="checkout-item-info">
-                        <h3 class="checkout-item-name">Backpack #1</h3>
-                        <p class="checkout-qty">QTY: <span>1</span></p>
-                        <p>Subtotal: <span>$24.99</span></p>
+                        <h3 class="checkout-item-name">{{ product['name'] }}</h3>
+                        <p class="checkout-qty">QTY: <span>{{ product['quantity'] }}</span></p>
+                        <p>Subtotal: <span>${{ "{:.2f}".format(product['subtotal']) }}</span></p>
                     </div>
                 </div>
-                <div class="checkout-item">
-                    <img src="../../static/styles/images/backpacks/blue_bag.jpg">
-                    <div class="checkout-item-info">
-                        <h3 class="checkout-item-name">Backpack #1</h3>
-                        <p class="checkout-qty">QTY: <span>1</span></p>
-                        <p>Subtotal: <span>$24.99</span></p>
-                    </div>
-                </div>
+            {% endfor %}
             </div>
             <div class="checkout-final-summary">
                 <div class="checkout-row">
                     <h3 class="align-left">Subtotal</h3>
-                    <p class="align-right">$24.99</p>
+                    <p class="align-right">${{ "{:.2f}".format(total_price) }}</p>
                 </div>
                 <div class="checkout-row">
                     <h3 class="align-left">Shipping</h3>
-                    <p class="align-right">$5.00</p>
+                    <p class="align-right">${{ "{:.2f}".format(shipping_cost) }}</p>
                 </div>
                 <hr class="checkout-line">
                 <div class="checkout-row">
                     <h3 class="grand-total">Total</h3>
-                    <p class="grand-total">$29.99</p>
+                    <p class="grand-total">${{ "{:.2f}".format(total_price + shipping_cost) }}</p>
                 </div>
                 
             </div>

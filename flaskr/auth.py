@@ -79,16 +79,6 @@ def logout():
     session.clear()
     return redirect(url_for('index'))
 
-def login_required(view):
-    @functools.wraps(view)
-    def wrapped_view(**kwargs):
-        if g.user is None:
-            return redirect(url_for('auth.login'))
-
-        return view(**kwargs)
-
-    return wrapped_view
-
 @bp.route('/add_to_cart/<int:product_id>', methods=['POST'])
 def add_to_cart(product_id):
     user_id = session.get('user_id')
@@ -107,7 +97,7 @@ def add_to_cart(product_id):
         return redirect(url_for('auth.shopping_cart'))
     else:
         return redirect(url_for('auth.login'))
-    
+
 @bp.route('/shopping_cart')
 def shopping_cart():
     user_id = session.get('user_id')
@@ -136,4 +126,46 @@ def shopping_cart():
             total_price += product['subtotal']
         return render_template('shop/shopping_cart.html', cart_items=cart_items, total_price=total_price)
 
+@bp.route('/checkout', methods=['GET', 'POST'])
+def checkout():
+    user_id = session.get('user_id')
+    if user_id is None:
+        return redirect(url_for('auth.login'))
+    else:
+        db = get_db()
 
+        if request.method == 'POST':
+            selected_shipping = request.form.get('shipping')
+            if selected_shipping == 'standard':
+                shipping_cost = 5
+            elif selected_shipping == 'express':
+                shipping_cost = 18.95
+            elif selected_shipping == 'overnight':
+                shipping_cost = 21.95
+            else:
+                shipping_cost = 5
+
+        else:
+            shipping_cost = 5
+            selected_shipping = 'standard'
+
+        query = '''
+            SELECT 
+                products.id, 
+                products.name, 
+                products.price, 
+                products.image_path, 
+                CART.quantity, 
+                ROUND(products.price * cart.quantity, 2) AS subtotal 
+            FROM 
+                cart 
+            JOIN 
+                products ON cart.product_id = products.id 
+            WHERE 
+                user_id = ?
+        '''
+        cart_items = db.execute(query, (user_id,)).fetchall()
+        total_price = 0     
+        for product in cart_items:
+            total_price += product['subtotal']
+        return render_template('shop/checkout.html', cart_items=cart_items, total_price=total_price, shipping_cost=shipping_cost, selected_shipping=selected_shipping)
