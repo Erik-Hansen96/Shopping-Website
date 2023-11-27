@@ -1,5 +1,106 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <div class="checkout-page-container">
+        <section class="billing-shipping-form-container">
+            <form class="shipping-form">
+                <h2>Shipping Details</h2>
+                <input class="short-input" type="text" id="checkout-fname" name="fname" placeholder="First name" required>
+                <input class="short-input" type="text" id="checkout-lname" name="lname" placeholder="Last name" required><br>
+                <input class="long-input" type="text" id="checkout-address" name="address" placeholder="Address" required><br>
+                <input class="long-input" type="text" id="checkout-address-2" name="address2" placeholder="Apartment, suite, etc. (optional)"><br>
+                <input class="long-input" type="text" id="checkout-city" name="city" placeholder="City" required><br>
+                <input class="short-input" type="text" id="checkout-state" name="state" placeholder="State" required>
+                <input class="short-input" type="text" id="checkout-zip-code" name="zip-code" placeholder="ZIP code" required><br>
+                <input class="long-input" type="email" id="checkout-email" name="email" placeholder="Email" required><br>   
+                <input class="long-input" type="text" id="checkout-phone" name="phone" placeholder="Phone (optional)">   
+            </form>
+        </section>
+        <section class="shipping-cost-container">
+            <h3>Shipping Method</h3>
+            <div class="shipping-option-container">
+                <div class="shipping-option">
+                    <input type="radio" id="standard" name="shipping" value="standard" checked>
+                    <label for="standard">
+                        <span class="shipping-type">STANDARD</span>
+                        <span class="shipping-time">5-7 business days</span>
+                        <span class="shipping-cost">$5.00</span>
+                    </label><br>
+                </div>
+            
+                <div class="shipping-option">
+                    <input type="radio" id="express" name="shipping" value="express">
+                    <label for="express">
+                        <span class="shipping-type">EXPRESS</span>
+                        <span class="shipping-time">2-3 business days</span>
+                        <span class="shipping-cost">$18.95</span>
+                    </label><br>
+                </div>
+            
+                <div class="shipping-option">
+                    <input type="radio" id="overnight" name="shipping" value="overnight">
+                    <label for="overnight">
+                        <span class="shipping-type">OVERNIGHT</span>
+                        <span class="shipping-time">1-2 business days</span>
+                        <span class="shipping-cost">$21.95</span>
+                    </label>
+                </div>
+            </div>
+        </section>
 
-<body>
-    <h1>Hello, World!</h1>
-</body>
+        <section class="checkout-order-summary-container">
+            <h2>Items in Cart</h2>
+            <div class="checkout-order-list">
+                <div class="checkout-item">
+                    <img src="../../static/styles/images/backpacks/blue_bag.jpg">
+                    <div class="checkout-item-info">
+                        <h3 class="checkout-item-name">Backpack #1</h3>
+                        <p class="checkout-qty">QTY: <span>1</span></p>
+                        <p>Subtotal: <span>$24.99</span></p>
+                    </div>
+                </div>
+                <div class="checkout-item">
+                    <img src="../../static/styles/images/backpacks/blue_bag.jpg">
+                    <div class="checkout-item-info">
+                        <h3 class="checkout-item-name">Backpack #1</h3>
+                        <p class="checkout-qty">QTY: <span>1</span></p>
+                        <p>Subtotal: <span>$24.99</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout-final-summary">
+                <div class="checkout-row">
+                    <h3 class="align-left">Subtotal</h3>
+                    <p class="align-right">$24.99</p>
+                </div>
+                <div class="checkout-row">
+                    <h3 class="align-left">Shipping</h3>
+                    <p class="align-right">$5.00</p>
+                </div>
+                <hr class="checkout-line">
+                <div class="checkout-row">
+                    <h3 class="grand-total">Total</h3>
+                    <p class="grand-total">$29.99</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="payment-method-container">
+            <div class="credit-card-container">
+                <div class="credit-card-prompt">
+                    <span>Credit Card</span>
+                    <i class="fa-brands fa-cc-visa" style="color: #1d3557;"></i>
+                    <i class="fa-brands fa-cc-mastercard" style="color: #1d3557;"></i>
+                    <i class="fa-brands fa-cc-amex" style="color: #1d3557;"></i>
+                    <i class="fa-brands fa-cc-discover" style="color: #1d3557;"></i>
+                </div>
+                <input class="long-input" type="tel" inputmode="numeric" pattern="[0-9]{13,19}" maxlength="19" id="credit-card-number" placeholder="Credit Card Number" required><br/>
+                <input class="short-input" type ="tel" inputmode="numeric" pattern="[0-9]{2}/[0-9]{2}" maxlength="4" id="credit-card-month" placeholder="MM/YY" required>
+                <input class="short-input" type="tel" inputmode="numeric" pattern="[0-9]{3}" maxlength="4" id="credit-card-cvc" placeholder="CVC/CVV" required>
+            </div>
+        </section>
+        <input type="submit" value="Place Order" class="place-order-button">
+    </div>
+</main>
+{% endblock %}

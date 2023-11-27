@@ -423,14 +423,14 @@ h2 {
     text-align: center;
 }
 
-label {
+#contact-form > label {
     background-color: transparent;
     color: rgb(29, 53, 87);
     float: left;
     
 }
 
-input[type=text], input[type=email] {
+#contact-form > input {
     width: 100%;
     margin: 6px 6px 16px 6px;
     padding: 1px 5px;
@@ -468,8 +468,7 @@ textarea {
 }
 
 .submit-button:hover {
-    color: rgb(29, 53, 87);
-    background-color: rgb(241, 250, 238);
+    background-color: rgba(29, 53, 87, 0.616);
 }
 
 /* PRODUCTS*/
@@ -857,7 +856,7 @@ hr {
     text-align: center;
     margin-top: 0.5rem;
 }
-
+/*.credit-card-prompt > i */
 .secure-payment-container > i {
     font-size: 2rem;
     margin: 0.5rem 0.3rem;
@@ -961,8 +960,143 @@ footer > p {
     padding-bottom: 0.2rem;
 }
 
+/* Shipping Option */
+.shipping-cost-container {
+    width: fit-content;
+    margin: 1rem auto  2rem;
+    background-color: rgb(228, 237, 224);
+    border-radius: 5px;
+    padding-top: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.shipping-cost-container > h3 {
+    background-color: transparent;
+}
+
+
+.shipping-option-container {
+    background-color: transparent;
+    padding: 1rem;
+    margin: auto;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.shipping-option > input, .shipping-option > label {
+    background-color: transparent;
+}
+
+.shipping-option {
+    margin: 0.5rem 1rem;
+    background-color: transparent;
+}
+
+.shipping-type {
+    font-weight: bold;
+    background-color: rgb(241, 250, 238);
+    border-radius: 10px;
+    margin: 0.1rem;
+    padding: 2px 5px;
+}
+
+.shipping-time {
+    color: rgb(117, 113, 113);
+    background-color: transparent;
+    margin: 0.1rem;
+    padding-right: 4px;
+}
+
+.shipping-cost {
+    color: red;
+    background-color: transparent;
+    margin: 0.1rem;
+}
+
 /* Checkout Order Summary */
 .checkout-order-summary-container {
+    margin: 2rem 0;
+}
+
+.checkout-order-summary-container > h2 {
+    font-size: 1.8rem;
+    
+}
+
+.checkout-item {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 2px solid gray;
+    border-bottom: 1px solid gray;
+    background-color: rgb(228, 237, 224);
+}
+
+.checkout-item-info {
+    margin: 0;
+    padding: 0 0.5rem;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.checkout-item-name {
+    padding-top: 0.3rem;
+    margin-bottom: 0;
+}
+
+.checkout-qty {
+    font-size: 0.7rem;
+    margin-bottom: 0.6rem;
+}
+
+.checkout-item > img {
+    width: 15%;
+    min-width: 60px;
+    aspect-ratio: 1 / 1;
+    object-position: center;
+    object-fit: cover;
+    margin: 0 1rem;
+}
+
+
+
+.checkout-order-list {
+    border-bottom: 2px solid gray;
+    border-top: 1px solid gray;
+    width: 40%;
+    min-width: 400px;
+    margin: auto;
+}
+
+.checkout-final-summary {
+    background-color: rgba(149, 144, 144, 0.308);
+    width: 40%;
+    min-width: 300px;
+    margin: 3rem auto 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.grand-total {
+    font-size: 1.5rem;
+}
+
+.checkout-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: transparent;
+}
+
+.checkout-row > h3, .checkout-row > p {
+    background-color: transparent;
+}
+
+.checkout-line {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    color: gray;
 }
 
 /* Payment Method */
@@ -992,8 +1126,9 @@ footer > p {
 
 .credit-card-prompt {
     text-align: left;
-    padding: 0 3%;
-    margin: 0 0 8px;
+    padding: 2px 3%;
+    margin: 0 0 10px;
+    border-radius: 10px;
 }
 
 .place-order-button {
