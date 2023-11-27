@@ -11,7 +11,7 @@
     <div class="login-form-container">
       <form class="login-form" method="post">
         {% for message in get_flashed_messages() %}
-          <div class="flash">{{ message }}</div>
+          <div class="flash"><i class="fa-solid fa-circle-exclamation" style="color: #ad1a1a;"></i>{{ message }}</div>
           {% endfor %}
         <label for="username">Username*</label><br>
         <input class="userInfo" name="username" id="username" required><br><br>
