@@ -108,7 +108,18 @@ def remove_from_cart(product_id):
         return redirect(url_for('auth.shopping_cart'))
     else:
         return redirect(url_for('auth.login'))
-
+    
+@bp.route('/checkoutConfirmation')
+def checkoutConfirmation():
+    user_id = session.get('user_id')
+    if user_id:
+        db = get_db()
+        db.execute('DELETE FROM cart WHERE user_id = ?', (user_id,))
+        db.commit()
+        return render_template('shop/checkoutConfirmation.html')
+    else:
+        return redirect(url_for('auth.login'))
+    
 @bp.route('/shopping_cart')
 def shopping_cart():
     user_id = session.get('user_id')
