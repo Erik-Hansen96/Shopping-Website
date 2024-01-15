@@ -1,6 +1,6 @@
 # Shopping Website Project
 
-Welcome to our collaborative shopping website project! This project is a result of the combined efforts of myself and [JY-23](https://github.com/jy-23). I handled the backend development using Python, Flask, and SQLite, while [JY-23] contributed to the frontend design using, HTML and CSS.
+Welcome to our collaborative shopping website project! This project is a result of the combined efforts of myself and [JY-23](https://github.com/jy-23). I handled the backend development using Python, Flask, and SQLite, while [JY-23](https://github.com/jy-23) took care of the frontend design using, HTML and CSS.
 
 ## Features
 
@@ -17,7 +17,7 @@ Welcome to our collaborative shopping website project! This project is a result 
 
 
 
-- **Frontend (by [JY-23]):**
+- **Frontend [JY-23](https://github.com/jy-23):**
   - **Frontend Design:**
     - The webpages were designed using HTML, offering a visually appealing and user-friendly interface.
     - CSS was to ensure the website's responsiveness across various devices.
@@ -29,5 +29,5 @@ Welcome to our collaborative shopping website project! This project is a result 
 
 ## Screenshots
 
-![Website Screenshots](https://imgur.com/a/P1Jzftz)
+[Website Screenshots](https://imgur.com/a/P1Jzftz)
 
