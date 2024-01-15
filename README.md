@@ -6,8 +6,8 @@ Welcome to our collaborative shopping website project! This project is a result 
 
 - **Backend:**
   - **Technologies:**
-    - Python: Leveraged Python for a robust backend infrastructure.
-    - Flask: Implemented the backend using Flask, a lightweight and efficient web framework.
+    - Python: Base programming language.
+    - Flask: Implemented the backend using Flask for web framework.
     - SQLite: Managed our data with SQLite for simplicity and reliability.
 
   - **Features and Functionalities:**
